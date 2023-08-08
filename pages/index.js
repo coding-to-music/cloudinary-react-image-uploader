@@ -2,6 +2,12 @@ import { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
+// const { cloudinary } = require("../config/cloudinary");
+
+const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+
+// Now you can use `apiUrl` wherever you need it, like in your API calls.
 
 export default function Home() {
   const [imageSrc, setImageSrc] = useState();
@@ -45,7 +51,8 @@ export default function Home() {
     formData.append("upload_preset", "my-uploads");
 
     const data = await fetch(
-      "https://api.cloudinary.com/v1_1/[Your Cloudinary Cloud Name]/image/upload",
+      apiUrl,
+      // "https://api.cloudinary.com/v1_1/[Your Cloudinary Cloud Name]/image/upload",
       {
         method: "POST",
         body: formData,
@@ -79,7 +86,7 @@ export default function Home() {
             <input type="file" name="file" />
           </p>
 
-          <Image src={imageSrc} alt="new image" />
+          {/* <Image src={imageSrc} alt="new image" /> */}
 
           {imageSrc && !uploadData && (
             <p>
