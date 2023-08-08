@@ -1,5 +1,5 @@
 {
-  "name": "cloudinary-react-image-uploader",
+  "name": "cloudinary-react-nextjs-image-uploader",
   "private": true,
   "engines": {
     "node": "16.x"

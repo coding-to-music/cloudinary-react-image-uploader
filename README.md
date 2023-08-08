@@ -1,10 +1,10 @@
-# cloudinary-react-image-uploader
+# cloudinary-react-nextjs-image-uploader
 
 # 🚀 Uploading Images to Cloudinary using React 17 and Nextjs 12 🚀
 
-https://github.com/coding-to-music/cloudinary-react-image-uploader
+https://github.com/coding-to-music/cloudinary-react-nextjs-image-uploader
 
-https://cloudinary-react-image-uploader.vercel.app
+https://cloudinary-react-nextjs-image-uploader.vercel.app
 
 From / By Colby Fayock https://github.com/colbyfayock/my-image-uploader/
 
@@ -39,7 +39,7 @@ git add .
 git remote remove origin
 git commit -m "first commit"
 git branch -M main
-git remote add origin git@github.com:coding-to-music/cloudinary-react-image-uploader.git
+git remote add origin git@github.com:coding-to-music/cloudinary-react-nextjs-image-uploader.git
 git push -u origin main
 ```
 
