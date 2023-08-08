@@ -4,8 +4,34 @@ import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 // const { cloudinary } = require("../config/cloudinary");
 
+// const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+// const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+
 const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
+const apiSecret = process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET;
+const uploadPreset = "my_preset"; // Your actual upload preset name
+
+// console.log(cloudName);
+// console.log(apiKey);
+// console.log(apiSecret);
+
+const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload?api_key=${apiKey}&api_secret=${apiSecret}`;
+
+// const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+
+// const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+
+// Make your API call and include the `upload_preset` parameter
+// const response = await fetch(apiUrl, {
+//   method: "POST",
+//   body: formData, // Your form data containing the image
+//   headers: {
+//     "X-Requested-With": "XMLHttpRequest",
+//   },
+//   // Include the upload preset in the URL
+//   query: `upload_preset=${uploadPreset}`,
+// });
 
 // Now you can use `apiUrl` wherever you need it, like in your API calls.
 
@@ -36,6 +62,7 @@ export default function Home() {
 
   async function handleOnSubmit(event) {
     event.preventDefault();
+    console.log(event.currentTarget);
 
     const form = event.currentTarget;
     const fileInput = Array.from(form.elements).find(
@@ -48,16 +75,20 @@ export default function Home() {
       formData.append("file", file);
     }
 
-    formData.append("upload_preset", "my-uploads");
+    formData.append("upload_preset", "unsigned_uploads");
 
-    const data = await fetch(
-      apiUrl,
-      // "https://api.cloudinary.com/v1_1/[Your Cloudinary Cloud Name]/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).then((r) => r.json());
+    // "https://api.cloudinary.com/v1_1/[Your Cloudinary Cloud Name]/image/upload",
+    const data = await fetch(apiUrl, {
+      method: "POST",
+      body: formData,
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      // query: `upload_preset=${uploadPreset}`,
+    }).then((r) => r.json());
+
+    // console.log("data", data);
+    // console.log("response", r);
 
     setImageSrc(data.secure_url);
     setUploadData(data);
