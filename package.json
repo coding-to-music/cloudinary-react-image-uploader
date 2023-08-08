@@ -1,8 +1,12 @@
 {
-  "name": "demo-image-upload-starter",
+  "name": "cloudinary-react-image-uploader",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "next dev",
+    "deploy": "git add . && git commit -m 'Build' && git push",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
