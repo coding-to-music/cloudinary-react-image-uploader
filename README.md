@@ -28,7 +28,7 @@ nvm use 16
 ## Environment variables:
 
 ```java
-
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name_here
 ```
 
 ## GitHub
