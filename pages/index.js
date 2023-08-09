@@ -15,6 +15,7 @@ const uploadPreset = "my_preset"; // Your actual upload preset name
 // console.log(cloudName);
 // console.log(apiKey);
 // console.log(apiSecret);
+//
 
 const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload?api_key=${apiKey}&api_secret=${apiSecret}`;
 
