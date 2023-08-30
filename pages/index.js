@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
 import { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
@@ -102,7 +101,6 @@ export default function Home() {
         <title>Image Uploader</title>
         <meta name="description" content="Upload your image to Cloudinary!" />
         <link rel="icon" href="/favicon.ico" />
-        <Analytics />
       </Head>
 
       <main className={styles.main}>
